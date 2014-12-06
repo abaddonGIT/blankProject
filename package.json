@@ -1,0 +1,19 @@
+{
+    "name": "Svet",
+    "version": "1.0.0",
+    "email": "abaddongit@gmail.com",
+    "url": "https://github.com/abaddonGIT",
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-contrib-watch": "~0.4.3",
+        "grunt-contrib-uglify": "~0.6.0",
+        "grunt-contrib-concat": "~0.4.0",
+        "grunt-contrib-cssmin": ">=0.10.0",
+        "grunt-spritesmith": "~1.21.0",
+        "grunt-contrib-imagemin": "~0.9.2",
+        "grunt-bower-task": "~0.4.0",
+        "grunt-autoprefixer": "*",
+        "load-grunt-tasks": ">=1.0.0",
+        "grunt-newer": ">=0.8.0"
+    }
+}

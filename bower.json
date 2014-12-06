@@ -1,0 +1,11 @@
+{
+    "name": "sample",
+    "version": "0.0.0",
+    "dependencies": {
+        "less": "latest",
+        "font-awesome": "latest",
+        "jquery": "latest",
+        "normalize-css": "latest",
+        "fancybox": "latest"
+    }
+}
