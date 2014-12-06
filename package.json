@@ -2,7 +2,7 @@
     "name": "Svet",
     "version": "1.0.0",
     "email": "abaddongit@gmail.com",
-    "url": "https://github.com/abaddonGIT",
+    "url": "https://github.com/abaddonGIT/blankProject",
     "devDependencies": {
         "grunt": "~0.4.1",
         "grunt-contrib-watch": "~0.4.3",

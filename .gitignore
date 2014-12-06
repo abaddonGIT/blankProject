@@ -5,3 +5,6 @@ img/
 node_modules/
 dist/
 .idea/workspace.xml
+js/libs/
+css/sprite.css
+css/sprite.less
