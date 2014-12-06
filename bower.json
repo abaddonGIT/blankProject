@@ -1,6 +1,7 @@
 {
   "name": "sample",
   "version": "0.0.0",
+  "directory": "vendors",
   "dependencies": {
     "angular": "latest",
     "angular-route": "latest",
