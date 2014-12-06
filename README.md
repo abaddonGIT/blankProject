@@ -1,4 +1,0 @@
-blankProject
-============
-
-Blank for projects
