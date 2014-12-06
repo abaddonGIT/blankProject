@@ -3,3 +3,5 @@
 .idea/workspace.xml
 img/
 node_modules/
+dist/
+.idea/workspace.xml
