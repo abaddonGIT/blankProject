@@ -1,19 +1,11 @@
 {
-  "name": "sample",
-  "version": "0.0.0",
-  "directory": "vendors",
-  "dependencies": {
-    "angular": "latest",
-    "angular-route": "latest",
-    "angular-cache": "latest",
-    "angularAMD": "latest",
-    "less": "latest",
-    "font-awesome": "latest",
-    "jquery": "components/jquery#~2.1.1",
-    "jquery-ui": "latest",
-    "normalize-css": "latest",
-    "bootstrap": "latest",
-    "requirejs": "latest",
-    "fancybox": "latest"
-  }
+    "name": "sample",
+    "version": "0.0.0",
+    "dependencies": {
+        "less": "latest",
+        "font-awesome": "latest",
+        "jquery": "latest",
+        "normalize-css": "latest",
+        "fancybox": "latest"
+    }
 }

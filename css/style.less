@@ -1,72 +1,71 @@
-html, body {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
-html {
-  font-size: 10px;
-}
-body {
-  font-size: 1.2rem;
-}
+/*Colors*/
+/*base classes*/
 .left {
   float: left;
 }
+
 .right {
   float: right;
 }
-.rel {
-  position: relative;
-}
-.abs {
-  position: absolute;
-}
-.tcenter {
-  text-align: center;
-}
-.trigth {
-  text-align: right;
-}
-.tleft {
-  text-align: left;
-}
+
 .block {
   display: block;
 }
-.binline {
-  display: inline-block;
-}
+
 .none {
   display: none;
 }
-input, a {
-  outline: none;
+
+.tcenter {
+  text-align: center;
 }
-:-moz-placeholder {}
-::-webkit-input-placeholder {}
-:-ms-input-placeholder {}
+
+.tleft {
+  text-align: left;
+}
+
+.tright {
+  text-align: right;
+}
+
+.rel {
+  position: relative;
+}
+
+.abs {
+  position: absolute;
+}
+
+.fix {
+  position: fixed;
+}
+
+.clear {
+  clear: both;
+}
+
+:-moz-placeholder {
+}
+
+::-webkit-input-placeholder {
+}
+
+:-ms-input-placeholder {
+}
+
 .rotation(@grad) {
   transform: rotate(@grad);
-  -ms-transform: rotate(@grad);
-  -webkit-transform: rotate(@grad);
 }
 
 .bradius(@radius) {
-  -webkit-border-radius: @radius;
-  -moz-border-radius: @radius;
   border-radius: @radius;
 }
 
 .shadow(@size, @color) {
-  -moz-box-shadow: 0 0 @size @color;
-  -webkit-box-shadow: 0 0 @size @color;
   box-shadow: 0 0 @size @color;
 }
 
 .shadowin(@size, @color) {
-  -moz-box-shadow: inset 0 0 @size @color;
-  -webkit-box-shadow: inset 0 0 @size @color;
   box-shadow: inset 0 0 @size @color;
 }
 
@@ -95,11 +94,62 @@ input, a {
 }
 
 .noselect {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
   user-select: none;
+}
+
+img {
+  &.responsive {
+    .block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+html {
+  font: normal 500 10px "Trebuchet MS", Tahoma, Verdana, Arial, sans-serif;
+}
+
+body {
+  font-size: 1.4rem;
+}
+
+body, html {
+  padding: 0;
+  margin: 0;
+  width: 0;
+  height: 0;
+}
+
+a {
+  &:visited, &:link, a:hover, a:active {
+    outline: none;
+  }
+}
+
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 70em;
+  margin: 0 auto;
+  padding: 0 1em;
+  overflow: hidden;
+}
+
+/******Media Queries*******/
+
+/* Medium Screens*/
+@media all and (min-width: 35em) {
+
+}
+
+@media all and (min-width: 40em) {
+
+}
+
+/* Large Screens */
+@media all and (min-width: 54em) {
+
 }
