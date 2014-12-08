@@ -5,7 +5,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         distFolder: 'dist',
         concatName: 'build',
-        /*Объединение файлов*/
+        /*РћР±СЉРµРґРёРЅРµРЅРёРµ С„Р°Р№Р»РѕРІ*/
         concat: {
             css: {
                 src: ['css/*.css'],
@@ -20,7 +20,7 @@ module.exports = function (grunt) {
                 dest: '<%= distFolder %>/js/libs/libs.js'
             }
         },
-        /*Сжатие js файлов*/
+        /*РЎР¶Р°С‚РёРµ js С„Р°Р№Р»РѕРІ*/
         uglify: {
             js: {
                 options: {
@@ -37,14 +37,14 @@ module.exports = function (grunt) {
                 }
             }
         },
-        /*Сжатие css файлов*/
+        /*РЎР¶Р°С‚РёРµ css С„Р°Р№Р»РѕРІ*/
         cssmin: {
             css: {
                 src: ['<%= distFolder %>/css/<%= concatName %>.css'],
                 dest: '<%= distFolder %>/css/<%= concatName %>.min.css'
             }
         },
-        /*Создание спрайтов*/
+        /*РЎРѕР·РґР°РЅРёРµ СЃРїСЂР°Р№С‚РѕРІ*/
         sprite: {
             dist: {
                 src: ['img/sprites/*.png'],
@@ -58,7 +58,7 @@ module.exports = function (grunt) {
                 }
             }
         },
-        /*Оптимизация изображений*/
+        /*РћРїС‚РёРјРёР·Р°С†РёСЏ РёР·РѕР±СЂР°Р¶РµРЅРёР№*/
         imagemin: {
             dist: {
                 files: [
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
                 ]
             }
         },
-        /*Подгрузка библиотек*/
+        /*РџРѕРґРіСЂСѓР·РєР° Р±РёР±Р»РёРѕС‚РµРє*/
         bower: {
             install: {
                 options: {
@@ -85,7 +85,7 @@ module.exports = function (grunt) {
                 }
             }
         },
-        /*Добавляет префиксы для css3*/
+        /*Р”РѕР±Р°РІР»СЏРµС‚ РїСЂРµС„РёРєСЃС‹ РґР»СЏ css3*/
         autoprefixer: {
             options: {
                 browsers: ['last 8 versions']
@@ -96,7 +96,7 @@ module.exports = function (grunt) {
                 }
             }
         },
-        /*Копирует файлы в рабочую папку с заменой путей*/
+        /*РљРѕРїРёСЂСѓРµС‚ С„Р°Р№Р»С‹ РІ СЂР°Р±РѕС‡СѓСЋ РїР°РїРєСѓ СЃ Р·Р°РјРµРЅРѕР№ РїСѓС‚РµР№*/
         copy: {
             html: {
                 src: '*.html',
