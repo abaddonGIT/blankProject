@@ -1,3 +1,4 @@
+@import "sprite.less";
 /*Colors*/
 /*base classes*/
 .left {
@@ -97,12 +98,10 @@
   user-select: none;
 }
 
-img {
-  &.responsive {
-    .block;
-    width: 100%;
-    height: auto;
-  }
+&.responsive {
+  .block;
+  width: 100%;
+  height: auto;
 }
 
 html {
@@ -132,24 +131,23 @@ a {
 }
 
 .container {
-  max-width: 70em;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1em;
   overflow: hidden;
 }
 
 /******Media Queries*******/
 
-/* Medium Screens*/
-@media all and (min-width: 35em) {
+/* Small Screens*/
+@media all and (min-width: 980px) {
 
 }
-
-@media all and (min-width: 40em) {
+/* Medium Screens*/
+@media all and (min-width: 1024px) {
 
 }
 
 /* Large Screens */
-@media all and (min-width: 54em) {
+@media all and (min-width: 1300px) {
 
 }

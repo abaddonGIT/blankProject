@@ -2,10 +2,16 @@
     "name": "sample",
     "version": "0.0.0",
     "dependencies": {
-        "less": "latest",
         "font-awesome": "latest",
-        "jquery": "latest",
-        "normalize-css": "latest",
-        "fancybox": "latest"
+        "jquery": "*",
+        "fancybox": "^2.1.5"
+    },
+    "exportsOverride": {
+        "jquery": {
+            "/": "**/jquery.min.js"
+        },
+        "fancybox": {
+            "/": ["source/jquery.fancybox.pack.js", "source/jquery.fancybox.css", "source/*.png", "source/*.gif"]
+        }
     }
 }

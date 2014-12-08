@@ -4,7 +4,8 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         distFolder: 'dist',
-        concatName: 'built',
+        concatName: 'build',
+        /*Объединение файлов*/
         concat: {
             css: {
                 src: ['css/*.css'],
@@ -19,14 +20,15 @@ module.exports = function (grunt) {
                 dest: '<%= distFolder %>/js/libs/libs.js'
             }
         },
+        /*Сжатие js файлов*/
         uglify: {
             js: {
                 options: {
                     sourceMap: true,
-                    sourceMapName: '<%= distFolder %>/js/min/sourcemap.map'
+                    sourceMapName: '<%= distFolder %>/js/sourcemap.map'
                 },
                 files: {
-                    '<%= distFolder %>/js/min/<%= concatName %>.min.js': ['<%= distFolder %>/js/<%= concatName %>.js']
+                    '<%= distFolder %>/js/<%= concatName %>.min.js': ['<%= distFolder %>/js/<%= concatName %>.js']
                 }
             },
             libs: {
@@ -35,12 +37,14 @@ module.exports = function (grunt) {
                 }
             }
         },
+        /*Сжатие css файлов*/
         cssmin: {
             css: {
                 src: ['<%= distFolder %>/css/<%= concatName %>.css'],
-                dest: '<%= distFolder %>/css/min/<%= concatName %>.min.css'
+                dest: '<%= distFolder %>/css/<%= concatName %>.min.css'
             }
         },
+        /*Создание спрайтов*/
         sprite: {
             dist: {
                 src: ['img/sprites/*.png'],
@@ -54,6 +58,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+        /*Оптимизация изображений*/
         imagemin: {
             dist: {
                 files: [
@@ -66,6 +71,7 @@ module.exports = function (grunt) {
                 ]
             }
         },
+        /*Подгрузка библиотек*/
         bower: {
             install: {
                 options: {
@@ -79,6 +85,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+        /*Добавляет префиксы для css3*/
         autoprefixer: {
             options: {
                 browsers: ['last 8 versions']
@@ -89,6 +96,27 @@ module.exports = function (grunt) {
                 }
             }
         },
+        /*Копирует файлы в рабочую папку с заменой путей*/
+        copy: {
+            html: {
+                src: '*.html',
+                dest: 'dist/',
+                options: {
+                    process: function (content, srcpath) {
+                        return content.replace(/css\//g, "dist/css/")
+                            .replace(/js\//g, "dist/js/")
+                            .replace(/img\//g, "dist/img/")
+                            .replace("/style.css", "/build.min.css")
+                            .replace("/base.js", "/build.min.js");
+                    }
+                }
+            },
+            libs: {
+                expand: true,
+                src: 'js/libs/**',
+                dest: '<%= distFolder %>/'
+            }
+        },
         watch: {
             css: {
                 files: ['css/*.css'],
@@ -97,6 +125,10 @@ module.exports = function (grunt) {
             js: {
                 files: ['js/*.js'],
                 tasks: ['js']
+            },
+            prefix: {
+                files: ['css/*.css'],
+                tasks: ['newer:autoprefixer']
             }
         }
     });
@@ -107,5 +139,5 @@ module.exports = function (grunt) {
     grunt.registerTask('css', ['newer:autoprefixer', 'newer:concat:css', 'newer:cssmin']);
     grunt.registerTask('img', ['sprite', 'imagemin']);
     grunt.registerTask('js', ['newer:concat:js', 'newer:uglify:js']);
-    grunt.registerTask('libsJs', ['concat:libs', 'uglify:libs']);
+    grunt.registerTask('build', ['css', 'js', 'img', 'copy']);
 };
