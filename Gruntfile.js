@@ -103,10 +103,7 @@ module.exports = function (grunt) {
                 dest: 'dist/',
                 options: {
                     process: function (content, srcpath) {
-                        return content.replace(/css\//g, "dist/css/")
-                            .replace(/js\//g, "dist/js/")
-                            .replace(/img\//g, "dist/img/")
-                            .replace("/style.css", "/build.min.css")
+                        return content.replace("/style.css", "/build.min.css")
                             .replace("/base.js", "/build.min.js");
                     }
                 }
