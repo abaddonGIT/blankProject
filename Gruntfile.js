@@ -4,50 +4,35 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         distFolder: 'dist',
-        concatName: 'build',
+        cssName: 'style',
+        jsName: 'base',
+        soriteFolder: 'img/sprites',
         /*Объединение файлов*/
         concat: {
-            css: {
-                src: ['css/*.css'],
-                dest: '<%= distFolder %>/css/<%= concatName %>.css'
-            },
             js: {
                 src: ['js/*.js'],
-                dest: '<%= distFolder %>/js/<%= concatName %>.js'
-            },
-            libs: {
-                src: ['js/libs/**/*.js'],
-                dest: '<%= distFolder %>/js/libs/libs.js'
+                dest: '<%= distFolder %>/js/<%= jsName %>.js'
             }
         },
         /*Сжатие js файлов*/
         uglify: {
             js: {
-                options: {
-                    sourceMap: true,
-                    sourceMapName: '<%= distFolder %>/js/sourcemap.map'
-                },
                 files: {
-                    '<%= distFolder %>/js/<%= concatName %>.min.js': ['<%= distFolder %>/js/<%= concatName %>.js']
-                }
-            },
-            libs: {
-                files: {
-                    '<%= distFolder %>/js/libs/min/libs.min.js': ['<%= distFolder %>/js/libs/libs.js']
+                    '<%= distFolder %>/js/<%= concatName %>.min.js': ['<%= distFolder %>/js/<%= jsName %>.js']
                 }
             }
         },
         /*Сжатие css файлов*/
         cssmin: {
             css: {
-                src: ['<%= distFolder %>/css/<%= concatName %>.css'],
-                dest: '<%= distFolder %>/css/<%= concatName %>.min.css'
+                src: ['css/<%= cssName %>.css'],
+                dest: '<%= distFolder %>/css/<%= cssName %>.min.css'
             }
         },
         /*Создание спрайтов*/
         sprite: {
             dist: {
-                src: ['img/sprites/*.png'],
+                src: ['<%= soriteFolder %>/*.png'],
                 destImg: 'img/sprite.png',
                 destCSS: 'css/sprite.less',
                 cssFormat: 'less',
@@ -75,7 +60,7 @@ module.exports = function (grunt) {
         bower: {
             install: {
                 options: {
-                    targetDir: 'js/libs',
+                    targetDir: 'js/vendors',
                     layout: 'byType',
                     install: true,
                     verbose: false,
@@ -110,22 +95,8 @@ module.exports = function (grunt) {
             },
             libs: {
                 expand: true,
-                src: 'js/libs/**',
+                src: 'js/vendors/**',
                 dest: '<%= distFolder %>/'
-            }
-        },
-        watch: {
-            css: {
-                files: ['css/*.css'],
-                tasks: ['css']
-            },
-            js: {
-                files: ['js/*.js'],
-                tasks: ['js']
-            },
-            prefix: {
-                files: ['css/*.css'],
-                tasks: ['newer:autoprefixer']
             }
         }
     });
@@ -133,7 +104,7 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
 
 
-    grunt.registerTask('css', ['newer:autoprefixer', 'newer:concat:css', 'newer:cssmin']);
+    grunt.registerTask('css', ['newer:autoprefixer', 'newer:cssmin']);
     grunt.registerTask('img', ['sprite', 'imagemin']);
     grunt.registerTask('js', ['newer:concat:js', 'newer:uglify:js']);
     grunt.registerTask('build', ['css', 'js', 'img', 'copy']);
