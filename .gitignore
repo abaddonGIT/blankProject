@@ -26,3 +26,6 @@ js/vendors/
 .idea/workspace.xml
 .idea/git.iml
 .idea/workspace.xml
+.gitignore.orig
+.idea/workspace.xml.orig
+README.md.orig
