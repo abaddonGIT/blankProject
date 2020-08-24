@@ -1,4 +1,4 @@
-blankProject
+grunt-start-boilerplate
 ============
 
 Заготовка для развертывания проекта на основе grunt.
